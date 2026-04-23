@@ -1,0 +1,34 @@
+{
+    "productos":[
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        },
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        },
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        },
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        },
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        },
+        {
+            "nombre": "mate",
+            "precio": 50000,
+            "img": " "
+        }
+    ]
+}

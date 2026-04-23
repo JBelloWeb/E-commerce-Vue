@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+
     <div id="app">
-        <titulo text="Soy un titulo" ></titulo>
-        <titulo v-on:evento="eventoRebido" text="Soy un titulo 2" ></titulo>
+        <div id="catalogo">
+            <card v-for="p in productos" :key="p.id" :name="p.nombre"></card>
+        </div>
     </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="main.js"></script>
+    <script src="carrito.js"></script>
 </body>
 </html>
