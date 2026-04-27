@@ -125,7 +125,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05); 
 }
 
-/* Precio */
 .card p {
     font-size: 1.6rem;
     font-weight: bold;
@@ -139,7 +138,6 @@ h1, h2, h3, h4, h5, h6 {
     content: "$ ";
 }
 
-/* Botón de la card */
 .card button {
     width: 100%;
     background-color: var(--main-color);

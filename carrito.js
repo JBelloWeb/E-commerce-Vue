@@ -16,7 +16,6 @@ const app = Vue.createApp({
         productosFiltrados(){
             let result = [...this.productos];
 
-            // Filtro por categoría
             if(this.categoriaSeleccionada !== "Todas"){
                 result = result.filter(p => p.categoria === this.categoriaSeleccionada);
             }
@@ -27,7 +26,6 @@ const app = Vue.createApp({
                 result = result.filter(p => p.nombre.toLowerCase().includes(query));
             }
 
-            // Ordenamiento
             if(this.ordenamiento === "precio-asc"){
                 result.sort((a, b) => a.precio - b.precio);
             } else if(this.ordenamiento === "precio-desc"){
