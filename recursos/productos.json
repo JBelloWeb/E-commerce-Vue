@@ -1,34 +1,53 @@
 {
-    "productos":[
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
+    "productos": [
+        { "id": 1,
+         "nombre": "Mate Imperial",
+               "precio": 50000,
+         "categoria": "Mates",
+            "img": "https://acdn-us.mitiendanube.com/stores/002/905/434/products/sin-titulo-900-x-1200-px-70-cdc63a3a67cfb19f4017739433274751-1024-1024.webp" 
         },
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
+
+        { "id": 2,
+         "nombre": "Mate de Madera",
+               "precio": 35000,
+         "categoria": "Mates",
+            "img": "https://acdn-us.mitiendanube.com/stores/002/905/434/products/diseno-sin-titulo-2026-03-03t231415-351-b3da44a1826edd843117725905773097-1024-1024.webp" 
         },
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
+
+        { "id": 3,
+         "nombre": "Mate Calabaza",
+                "precio": 28000,
+         "categoria": "Mates",
+            "img": "https://acdn-us.mitiendanube.com/stores/002/905/434/products/sin-titulo-900-x-1200-px-47-37cfa931eae2f5287717732315480049-1024-1024.webp" 
         },
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
+
+        { "id": 4,
+         "nombre": "Yerba Amanda 1kg",
+             "precio": 12000,
+         "categoria": "Yerbas",
+           "img": "https://acdn-us.mitiendanube.com/stores/043/230/products/yerba_suave_1000_31-c6d5371e31e791165716171148907076-1024-1024.webp" 
         },
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
+
+        { "id": 5,
+         "nombre": "Yerba Taragüi 1kg",
+            "precio": 11000,
+         "categoria": "Yerbas",
+           "img": "https://cdn.billowshop.com/f48f79d8-a9de-3b13/productos/f6667a68-6b35-1e22-9e70-ad91fbcc4856/e8d4af15a95591f53dda9d1061a40c18-6509fa93067de.jpg" 
         },
-        {
-            "nombre": "mate",
-            "precio": 50000,
-            "img": " "
-        }
+
+        { "id": 7,
+         "nombre": "Termo Stanley 1L",
+             "precio": 95000,
+         "categoria": "Termos",
+           "img": "https://d2eebw31vcx88p.cloudfront.net/faststore/uploads/18060b2d234841a8554933446234ae2ee07498a5.jpg.webp" 
+        },
+
+        { "id": 9,
+         "nombre": "Bombilla Filtrante",
+           "precio":  8000,
+         "categoria": "Bombillas",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvTuk-KD_aGa9PvAOnF-a7xenUo8gB87c7Vw&s" 
+    }
     ]
+
 }

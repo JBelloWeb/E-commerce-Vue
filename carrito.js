@@ -1,10 +1,45 @@
-const d = document;
-const catalogo = d.getElementById('catalogo');
-
 const app = Vue.createApp({
     data(){
         return{
-            productos: []
+            productos: [],
+            carrito: [],
+            busqueda: "",
+            categoriaSeleccionada: "Todas",
+            ordenamiento: "ninguno"
+        }
+    },
+    computed: {
+        categorias(){
+            const categorias = this.productos.map(p => p.categoria);
+            return ["Todas", ...new Set(categorias)];
+        },
+        productosFiltrados(){
+            let result = [...this.productos];
+
+            // Filtro por categoría
+            if(this.categoriaSeleccionada !== "Todas"){
+                result = result.filter(p => p.categoria === this.categoriaSeleccionada);
+            }
+
+            // Filtro por búsqueda
+            if(this.busqueda.trim() !== ""){
+                const query = this.busqueda.toLowerCase();
+                result = result.filter(p => p.nombre.toLowerCase().includes(query));
+            }
+
+            // Ordenamiento
+            if(this.ordenamiento === "precio-asc"){
+                result.sort((a, b) => a.precio - b.precio);
+            } else if(this.ordenamiento === "precio-desc"){
+                result.sort((a, b) => b.precio - a.precio);
+            } else if(this.ordenamiento === "nombre-asc"){
+                result.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            }
+
+            return result;
+        },
+        total(){
+            return this.carrito.reduce((acc, item) => acc + item.precio, 0);
         }
     },
     methods:{
@@ -16,6 +51,15 @@ const app = Vue.createApp({
             } catch (error) {
                 console.error("Error al cargar:", error);
             }
+        },
+        agregarAlCarrito(producto){
+            this.carrito.push(producto);
+        },
+        quitarDelCarrito(index){
+            this.carrito.splice(index, 1);
+        },
+        vaciarCarrito(){
+            this.carrito = [];
         }
     },
     mounted() {
@@ -23,48 +67,20 @@ const app = Vue.createApp({
     }
 })
 
-app.component("titulo", {
-    props: ["text"],
-    data(){
-        return{
-
-        }
-    },
-    methods:{
-        nuevoEmit(){
-            this.$emit("evento", { mensaje: "Esto me lo envio el emit"})
-        }
-    },
-    template:` 
-    <div>
-        <h1>{{text}}</h1>
-        <button v-on:click="nuevoEmit">evento</button>
-    </div>
-    `
-})
-
 app.component("card", {
-    props: ["name"],
-    data(){
-        return{}
-    },
-    methods:{
-        nuevoEmit(){
-            this.$emit("evento", { mensaje: "Esto me lo envio el emit"})
-        }
-
-    },
+    props: ["name", "url", "precio"],
     template:`
         <div class="card">
             <h3>{{name}}</h3>
 
             <figure>
-                <img src="" alt="">
+                <img :src="url" :alt="'Imágen de ' + name">
                 <figcaption></figcaption>
             </figure>
 
-            <button v-on:click="nuevoEmit">evento</button>
+            <p>{{precio}}</p>
 
+            <button @click="$emit('agregar', { name, precio, url })">Agregar al Carrito</button>
         </div>
     `
 })

@@ -1,0 +1,232 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+img, picture, video, svg, canvas {
+    max-width: 100%;
+    display: block;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+body {
+    line-height: 1.5;
+    background-color: #F9F6F0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+:root {
+    --main-color: #5d7c36;
+    --main-variation: #435c25;
+    --secondary-color: #8b5a2b;
+    --secondary-variation: #a0522d;
+    --fondo-card: #fefefe;
+    --borde: #e0d8c8;
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--borde);
+    flex-wrap: wrap;
+}
+
+#filtros input, #filtros select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    flex: 1;
+    min-width: 200px;
+}
+
+#filtros input:focus, #filtros select:focus {
+    border-color: var(--main-color);
+}
+
+#catalogo {
+    display: grid;
+    /* Crea columnas responsivas de al menos 250px */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--fondo-card);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(139, 90, 43, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(139, 90, 43, 0.15);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+
+.card figure {
+    width: 100%;
+    height: 200px; 
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #f4f4f4;
+}
+
+.card figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    transition: transform 0.3s ease;
+}
+
+.card:hover figure img {
+    transform: scale(1.05); 
+}
+
+/* Precio */
+.card p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--main-color);
+    text-align: center;
+    margin-top: auto; 
+    margin-bottom: 15px;
+}
+
+.card p::before {
+    content: "$ ";
+}
+
+/* Botón de la card */
+.card button {
+    width: 100%;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.card button:hover {
+    background-color: var(--main-variation);
+}
+
+#carrito {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--borde);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#carrito h2 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
+}
+
+#carrito ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+#carrito li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carrito li button:hover {
+    background-color: #c82333;
+}
+
+#carrito > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#carrito > div p {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+}
+
+#carrito > div button {
+    background-color: white;
+    color: var(--secondary-variation);
+    border: 2px solid var(--secondary-variation);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#carrito > div button:hover {
+    background-color: var(--secondary-variation);
+    color: white;
+}

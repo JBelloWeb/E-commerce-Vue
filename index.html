@@ -3,14 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Carrito de Compras Vue</title>
 </head>
 <body>
 
     <div id="app">
-        <div id="catalogo">
-            <card v-for="p in productos" :key="p.id" :name="p.nombre"></card>
+
+        <!-- FILTROS -->
+        <div id="filtros">
+            <input
+                type="text"
+                v-model="busqueda"
+                placeholder="Buscar producto..."
+            >
+
+            <select v-model="categoriaSeleccionada">
+                <option v-for="cat in categorias" :key="cat" :value="cat">{{ cat }}</option>
+            </select>
+
+            <select v-model="ordenamiento">
+                <option value="ninguno">Sin ordenar</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre-asc">Nombre: A-Z</option>
+            </select>
         </div>
+
+        <!-- CATÁLOGO -->
+        <div id="catalogo">
+            <p v-if="productosFiltrados.length === 0">No se encontraron productos.</p>
+            <card
+                v-for="p in productosFiltrados"
+                :key="p.id"
+                :name="p.nombre"
+                :precio="p.precio"
+                :url="p.img"
+                @agregar="agregarAlCarrito"
+            ></card>
+        </div>
+
+        <!-- CARRITO -->
+        <div id="carrito">
+            <h2>Carrito de Compras</h2>
+            <p v-if="carrito.length === 0">El carrito está vacío.</p>
+            <ul v-else>
+                <li v-for="(item, index) in carrito" :key="index">
+                    {{ item.name }} - ${{ item.precio }}
+                    <button @click="quitarDelCarrito(index)">✕</button>
+                </li>
+            </ul>
+            <div v-if="carrito.length > 0">
+                <p><strong>Total: ${{ total }}</strong></p>
+                <button @click="vaciarCarrito">Vaciar carrito</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
